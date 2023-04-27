@@ -1,0 +1,93 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.row-space {
+    margin: 15px 0px 15px 0px;
+}
+
+.signup-button {
+    background-color: #00a09b;
+    border-radius: 5px;
+    color: white;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding: 10px 30px;
+    border: 0px;
+    margin-bottom: 15px;
+}
+
+.signup-button:hover {
+    cursor: pointer;
+    background-color: #038f8a;
+}
+
+.form-panel {
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #CCE5FF;
+}
+
+.radio-space {
+    margin-right: 5px !important;
+    margin-left: 10px !important;
+}
+
+.header-text {
+    font-weight: 600;
+    font-size: 24px;
+    color: #161358;
+}
+
+.login-button {
+    background-color: white;
+    border-radius: 5px;
+    color: dimgray;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding: 10px 30px;
+    border: 1px solid gray;
+    margin-top: 15px;
+}
+
+.login-button:hover {
+    cursor: pointer;
+    background-color: whitesmoke;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.banned {
+    color: red;
+}
+
+.active {
+    color: green;
+}
+
+.space-right {
+    margin-right: 4px;
+}

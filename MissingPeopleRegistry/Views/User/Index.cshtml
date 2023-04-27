@@ -1,0 +1,83 @@
+﻿@model IEnumerable<User>
+
+<div class="offset-md-2 col-md-8">
+    <div class="header-text row-space text-center">
+        Zarządanie użytkownikami
+    </div>
+    @if (Model == null || !Model.Any())
+    {
+        <div class="text-center">
+            Wygląda na to, że jesteś jedynym użytkownikiem w systemie!
+        </div>
+    }
+    else{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    Imię i Nazwisko
+                </th>                
+                <th>
+                    Email
+                </th>
+                <th>
+                    Status
+                </th>
+            </tr>
+        </thead>
+        <tbody id="list">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item
+                    </td>
+                    <td>
+                        @item.Email
+                    </td>
+                        <td class="@GetStatusClass(item.Blocked)">
+                        @GetStatus(@item.Blocked)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edytuj", "UpdateUser", "User", new { id = item.Id }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink(ActionName(item.Blocked) , "ChangeUserStatus", "User", new { id = item.Id }, new { @class = "btn btn-warning" })
+                        @Html.ActionLink("Usuń", "DeleteUser", "User", new { id = item.Id }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    }
+</div>
+
+@functions{
+    private string GetStatus(bool blocked)
+    {
+        if (blocked)
+        {
+            return "Zablokowany";
+        }
+
+        return "Aktywny";
+    }
+
+    private string ActionName(bool blocked)
+    {
+        if (blocked)
+        {
+            return "Odblokuj";
+        }
+
+        return "Zablokuj";
+    }
+
+    private string GetStatusClass(bool blocked)
+    {
+        if (blocked)
+        {
+            return "banned";
+        }
+
+        return "active";
+    }
+}

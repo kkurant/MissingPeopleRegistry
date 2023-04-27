@@ -1,0 +1,74 @@
+﻿@model MissingPeopleRegistry.ViewModels.Account.RegisterVM
+
+@{
+    ViewData["Title"] = "Rejestracja";
+}
+
+<div class="row offset-3 col-md-6">
+    <form asp-action="Register" class="form-panel">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row row-space">
+            <div class="form-group header-text">
+                Załóż konto
+            </div>
+        </div>
+        <div class="row row-space">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Name" class="form-text"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="LastName" class="form-text"></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row row-space">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="Email" class="form-text"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row row-space">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Password" class="form-text"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword" class="form-text"></label>
+                    <input asp-for="ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row row-space" style="margin-top:15px; padding-bottom: 15px;">
+            <div class="form-group" style="text-align:center">
+                <input type="submit" value="Zarejestruj" class="signup-button" /><br />
+                <div>
+                    lub zaloguj się e-mail <br />
+                </div>
+                @Html.ActionLink("Zaloguj","Login","Account",null,new { @class = "login-button", @type = "button"})
+            </div>
+        </div>
+
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+}

@@ -1,0 +1,83 @@
+﻿@model MissingPeopleRegistry.ViewModels.MissingPeople.MissingPersonVM
+
+<div class="row offset-md-2 col-md-8 form-panel">
+    <form asp-action="CreateMissingPerson">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row row-space">
+            <div class="form-group header-text">
+                Dodaj ogłoszenie o osobie zaginionej
+            </div>
+        </div>
+        <div class="row row-space">
+            <div class="form-group col-md-6">
+                <label asp-for="@Model.Name" class="control-label"></label>
+                <input asp-for="@Model.Name" class="form-control input-space" />
+                <span asp-validation-for="@Model.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="@Model.LastName" class="control-label"></label>
+                <input asp-for="@Model.LastName" class="form-control input-space" />
+                <span asp-validation-for="@Model.LastName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row row-space">
+            <div class="form-group col-md-6">
+                <label asp-for="@Model.Gender" class="control-label"></label>
+                <select asp-for="@Model.Gender" class="form-control input-space">
+                    <option value="Male">Mężczyzna</option>
+                    <option value="Female">Kobieta</option>
+                </select>
+                <span asp-validation-for="@Model.Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="@Model.Age" class="control-label"></label>
+                <input asp-for="@Model.Age" class="form-control input-space" />
+                <span asp-validation-for="@Model.Age" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row row-space">
+            <div class="form-group">
+                <label asp-for="@Model.Description" class="control-label"></label>
+                <textarea asp-for="@Model.Description" class="form-control input-space"></textarea>
+                <span asp-validation-for="@Model.Description" class="text-danger"></span>
+            </div>
+        </div>        
+        <div class="row row-space">
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.MissingDate" class="control-label"></label>
+                <input asp-for="@Model.MissingDate" class="form-control input-space" type="date" id="datePicker" />
+                <span asp-validation-for="@Model.MissingDate" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.City" class="control-label"></label>
+                <input asp-for="@Model.City" class="form-control input-space" />
+                <span asp-validation-for="@Model.City" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.Country" class="control-label"></label>
+                <input asp-for="@Model.Country" class="form-control input-space" />
+                <span asp-validation-for="@Model.Country" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row row-space">
+            <div class="form-group input-space">
+                <input type="submit" value="Zapisz" class="btn btn-primary" />
+            </div>
+        </div>        
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        document.getElementById('datePicker').valueAsDate = new Date();
+        document.getElementById('datePicker').max = new Date().toISOString().split("T")[0];
+    })
+</script>
+
+}
